@@ -10,14 +10,14 @@ Build Polkadot for relay chain:
 
 ```bash
 git clone -n https://github.com/paritytech/polkadot.git
-git checkout v0.9.23
+git checkout v0.9.24
 cargo build --release
 ```
 
 Build Egg-net parachain:
 
 ```bash
-cargo build --release --p egg-collator
+cargo build --release -p egg-collator
 ```
 
 Update `dkg-launch.json` to relevant paths for Polkadot and Parachain binary.

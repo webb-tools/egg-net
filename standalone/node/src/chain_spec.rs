@@ -135,8 +135,8 @@ pub fn development_config() -> Result<ChainSpec, String> {
 				],
 				// Initial proposers
 				vec![
-					get_account_id_from_seed::<sr25519::Public>("Dave"),
-					get_account_id_from_seed::<sr25519::Public>("Eve"),
+					get_account_id_from_seed::<sr25519::Public>("Alice"),
+					get_account_id_from_seed::<sr25519::Public>("Bob"),
 				],
 				true,
 			)
@@ -216,8 +216,8 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 				],
 				// Initial proposers
 				vec![
-					get_account_id_from_seed::<sr25519::Public>("Dave"),
-					get_account_id_from_seed::<sr25519::Public>("Eve"),
+					get_account_id_from_seed::<sr25519::Public>("Alice"),
+					get_account_id_from_seed::<sr25519::Public>("Bob"),
 				],
 				true,
 			)
@@ -439,7 +439,8 @@ fn testnet_genesis(
 		grandpa: Default::default(),
 		dkg: DKGConfig {
 			authorities: initial_authorities.iter().map(|(.., x)| x.clone()).collect::<_>(),
-			threshold: Default::default(),
+			keygen_threshold: 2,
+			signature_threshold: 1,
 			authority_ids: initial_authorities.iter().map(|(x, ..)| x.clone()).collect::<_>(),
 		},
 		dkg_proposals: DKGProposalsConfig { initial_chain_ids, initial_r_ids, initial_proposers },

@@ -19,3 +19,4 @@ local-test
 **/node_modules/
 resources/para-2076-genesis
 resources/para-2076-wasm
+.log
